@@ -4,7 +4,7 @@ const CustomInputLabel = (props) => {
     return (
         <div className="container-input-label">
             <label>{props.label}</label>
-            <input type="text" placeholder={props.placeholder}></input>
+            <input required={props.obligatory} type="text" placeholder={props.placeholder}></input>
         </div>
     )
 };

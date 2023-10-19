@@ -3,22 +3,17 @@
     box-sizing: border-box;
 }
 
-.container-input-label {
-    margin: 24px 0;
-}
-
-.container-input-label label {
+.container-list-drop-down label {
     display: block;
     font-size: 18px;
     margin-bottom: 8px;
-
 }
 
-.container-input-label input {
+.container-list-drop-down select {
+    width: 100%;
     font-size: 16px;
     background-color: #fff;
     padding: 16px;
-    width: 100%;
     box-shadow: 10 10 30  rgba(0, 0, 0, 0.06);
     border: none;
-};
+}
