@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import './styles.css';
+
+
 import CustomInputLabel from "../CustomInputLabel";
 import ListDropDown from '../ListDropDown';
 import CustomButton from '../CustomButton';
 
-
-const Form = () => {
+const Form = (props) => {
 
     const teams = [
         "Programação",
@@ -24,10 +25,17 @@ const Form = () => {
 
     const WhenSaving = (event) => {
         event.preventDefault();
-        console.log(name, job, image, team);
-    }
+        // Cria um array com os valores da variáveis
+        props.registeredCollaborator({
+            name,
+            job,
+            image,
+            team
+        });
+    };
 
     return (
+        <>
         <section className="container-section-form">
             <form onSubmit={WhenSaving}>
                 <h2>Preencha os dados para criar o card do colaborador.</h2>
@@ -63,6 +71,7 @@ const Form = () => {
                 </CustomButton>
             </form>
         </section>
+        </>
     )
 }
 export default Form;
