@@ -45,8 +45,8 @@ function App() {
       secondaryColor: "#FFEEDF",
     },
   ];
-  const [collaborators, setCollaborators] = useState([]);
 
+  const [collaborators, setCollaborators] = useState([]);
 
   const newCollaboratorAdded = (collaborator) => {
     // Espalha(cópia), e depois adiciona mais um colaborador no fianl do array
@@ -57,7 +57,7 @@ function App() {
     <div className="App">
       <Banner />
       <Form
-        teams={teams}
+        teams={teams.map(element => element.name)}
         registeredCollaborator={collaborator => newCollaboratorAdded(collaborator)}
       />
 

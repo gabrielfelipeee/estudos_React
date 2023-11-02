@@ -8,20 +8,11 @@ import CustomButton from '../CustomButton';
 
 const Form = (props) => {
 
-    const teams = [
-        "Programação",
-        "Front-End",
-        "Data Science",
-        "Devops",
-        "Ux e Design",
-        "Mobile",
-        "Inovação e Gestão"
-    ];
-
     const [name, setName] = useState("");
     const [job, setJob] = useState("");
     const [image, setImage] = useState("");
     const [team, setTeam] = useState("");
+
 
     const WhenSaving = (event) => {
         event.preventDefault();
@@ -61,7 +52,7 @@ const Form = (props) => {
                     />
                 <ListDropDown 
                     obligatory={true} 
-                    itens={teams} 
+                    itens={props.teams} 
                     label="Time"
                     value={team}
                     whenChanging={value => setTeam(value)}
