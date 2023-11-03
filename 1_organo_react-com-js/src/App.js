@@ -63,13 +63,15 @@ function App() {
 
       {teams.map(team => {
         return <Team
+          key={team.name}
           teamName={team.name}
           primaryColor={team.primaryColor}
           secondaryColor={team.secondaryColor}
-          key={team.name}
+          collaborators={collaborators.filter(element => element.team === team.name)}
         />
       })}
     </div>
   );
 }
+
 export default App;

@@ -16,21 +16,9 @@
     border-bottom: 4px solid;
 }
 
-.container-team ul {
+.collaborators {
     display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    list-style: none;
-}
-
-li{
-    width: 100px;
-    height: 100px;
-    background-color: #fff;
-}
-
-span {
-    display: flex;
-    height: 20px;
-    width: 100px;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 24px;
 }
