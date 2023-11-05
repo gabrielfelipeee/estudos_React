@@ -10,6 +10,7 @@ const ListDropDown = (props) => {
         <div className="container-list-drop-down">
             <label>{props.label}</label>
             <select onChange={whenSelecting} value={props.value} required={props.obligatory}>
+                <option value=""></option>
                 {props.itens.map(item => <option key={item}>{item}</option>)}
             </select>
         </div>

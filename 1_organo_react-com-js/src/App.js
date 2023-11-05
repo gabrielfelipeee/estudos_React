@@ -70,7 +70,7 @@ function App() {
           collaborators={collaborators.filter(element => element.team === team.name)}
         />
       })}
-          <Footer/>
+      <Footer />
     </div>
   );
 }
