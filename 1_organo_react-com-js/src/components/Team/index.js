@@ -4,7 +4,9 @@ import Collaborator from '../Collaborator';
 
 const Team = (props) => {
     return (
-        <section className="container-team" style={{ backgroundColor: props.secondaryColor }}>
+        // Só retorna o time exisitr algum colaborador cadastrado
+        // Se ter um 1 ou mais colaboradores (true), retorna a section. Se não ter (false) não faz nada
+        (props.collaborators.length > 0) && <section className="container-team" style={{ backgroundColor: props.secondaryColor }}>
             <h3 style={{ borderColor: props.primaryColor }}>{props.teamName}</h3>
             <div className="collaborators">
                 {props.collaborators.map(element => <Collaborator

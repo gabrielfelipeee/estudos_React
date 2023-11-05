@@ -23,6 +23,10 @@ const Form = (props) => {
             image,
             team
         });
+        setName("");
+        setJob("");
+        setImage("");
+        setTeam("");
     };
 
     return (
