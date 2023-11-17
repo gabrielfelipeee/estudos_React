@@ -8,43 +8,36 @@ import Footer from './components/Footer';
 
 function App() {
 
-  const teams = [
+  const [teams, setTeams] = useState([
     {
       name: "Programação",
-      primaryColor: "#57C278",
-      secondaryColor: "#D9F7E9",
+      color: "#57C278",      
     },
     {
       name: "Front-End",
-      primaryColor: "#82CFFA",
-      secondaryColor: "#E8F8FF",
+      color: "#82CFFA",      
     },
     {
       name: "Data Science",
-      primaryColor: "#A6D157",
-      secondaryColor: "#F0F8E2",
+      color: "#A6D157",     
     },
     {
       name: "Devops",
-      primaryColor: "#E06B69",
-      secondaryColor: "#FDE7E8",
+      color: "#E06B69",     
     },
     {
       name: "Ux e Design",
-      primaryColor: "#DB6EBF",
-      secondaryColor: "#FAE9F5",
+      color: "#DB6EBF",   
     },
     {
       name: "Mobile",
-      primaryColor: "#FFBA05",
-      secondaryColor: "#FFF5D9",
+      color: "#FFBA05",
     },
     {
       name: "Inovação e Gestão",
-      primaryColor: "#FF8A29",
-      secondaryColor: "#FFEEDF",
+      color: "#FF8A29",
     },
-  ];
+  ]);
 
   const [collaborators, setCollaborators] = useState([]);
 
@@ -52,6 +45,19 @@ function App() {
     // Espalha(cópia), e depois adiciona mais um colaborador no fianl do array
     setCollaborators([...collaborators, collaborator]);
   }
+
+
+
+  const changeColorTeam = (color, name) => {
+    setTeams(teams.map(item => {
+      if (item.name === name) {
+        item.color = color;
+      }
+      return item;
+    }))
+  };
+
+
 
   return (
     <div className="App">
@@ -65,9 +71,9 @@ function App() {
         return <Team
           key={team.name}
           teamName={team.name}
-          primaryColor={team.primaryColor}
-          secondaryColor={team.secondaryColor}
           collaborators={collaborators.filter(element => element.team === team.name)}
+          changeColor={changeColorTeam}
+          color={team.color}
         />
       })}
       <Footer />

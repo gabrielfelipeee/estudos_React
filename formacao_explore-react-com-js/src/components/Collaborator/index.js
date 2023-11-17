@@ -1,10 +1,10 @@
 import './styles.css';
 
 
-const Collaborator = ({image, name, job}) => {
+const Collaborator = ({image, name, job, color}) => {
     return (
         <div className="container-collaborator">
-            <div className="header">
+            <div className="header" style={{backgroundColor: color}}>
                 <img src={image} alt="Avatar"></img>
             </div>
             <div className="footer">

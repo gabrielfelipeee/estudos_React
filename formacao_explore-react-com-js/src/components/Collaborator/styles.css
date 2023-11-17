@@ -4,6 +4,7 @@
 }
 
 .container-collaborator {
+    position: relative;
     width: 262px;
     background-color: #fff;
     box-shadow: 5px 5px 15px 0px rgba(0, 0, 0, 0.08);
@@ -12,7 +13,6 @@
 
 .container-collaborator .header {
     height: 90px;
-    background-color: #57C278;
     border-radius: 10px 10px 0 0;
 }
 .container-collaborator .header  img {

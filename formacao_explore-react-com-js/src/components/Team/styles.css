@@ -4,6 +4,7 @@
 }
 
 .container-team {
+    position: relative;
     text-align: center;
     padding: 32px;
 }
@@ -16,9 +17,16 @@
     border-bottom: 4px solid;
 }
 
-.collaborators {
+.container-team .collaborators {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     gap: 24px;
+}
+
+
+.container-team input {
+    position: absolute;
+    top: 25px;
+    right: 25px;
 }
