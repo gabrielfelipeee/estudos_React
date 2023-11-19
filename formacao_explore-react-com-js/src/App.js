@@ -1,39 +1,49 @@
 import { useState } from 'react';
 
+// Serve para colocar ids únicos | uuidv4 é um "apelido" de v4
+import { v4 as uuidv4 } from 'uuid'; 
 
 import Banner from './components/Banner';
 import Form from './components/Form';
 import Team from './components/Team';
 import Footer from './components/Footer';
 
+
 function App() {
 
   const [teams, setTeams] = useState([
     {
+      id: uuidv4(),
       name: "Programação",
       color: "#57C278",      
     },
     {
+      id: uuidv4(),
       name: "Front-End",
       color: "#82CFFA",      
     },
     {
+      id: uuidv4(),
       name: "Data Science",
       color: "#A6D157",     
     },
     {
+      id: uuidv4(),
       name: "Devops",
       color: "#E06B69",     
     },
     {
+      id: uuidv4(),
       name: "Ux e Design",
       color: "#DB6EBF",   
     },
     {
+      id: uuidv4(),
       name: "Mobile",
       color: "#FFBA05",
     },
     {
+      id: uuidv4(),
       name: "Inovação e Gestão",
       color: "#FF8A29",
     },
@@ -47,16 +57,19 @@ function App() {
   }
 
 
-
-  const changeColorTeam = (color, name) => {
+  const changeColorTeam = (color, id) => {
     setTeams(teams.map(item => {
-      if (item.name === name) {
+      if (item.id === id) {
         item.color = color;
       }
       return item;
     }))
   };
 
+
+  const deleteCollaborator = (id) => {
+    setCollaborators(collaborators.filter(item => item.id !== id));
+  }
 
 
   return (
@@ -65,15 +78,18 @@ function App() {
       <Form
         teams={teams.map(element => element.name)}
         registeredCollaborator={collaborator => newCollaboratorAdded(collaborator)}
+        idCollaborator={uuidv4()}
       />
 
       {teams.map(team => {
         return <Team
-          key={team.name}
+          key={team.id}
           teamName={team.name}
           collaborators={collaborators.filter(element => element.team === team.name)}
           changeColor={changeColorTeam}
           color={team.color}
+          whenDelete={deleteCollaborator}
+          id={team.id}
         />
       })}
       <Footer />

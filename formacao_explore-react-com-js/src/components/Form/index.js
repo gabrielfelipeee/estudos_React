@@ -12,7 +12,7 @@ const Form = (props) => {
     const [job, setJob] = useState("");
     const [image, setImage] = useState("");
     const [team, setTeam] = useState("");
-
+    const id = props.idCollaborator;
 
     const WhenSaving = (event) => {
         event.preventDefault();
@@ -21,7 +21,8 @@ const Form = (props) => {
             name,
             job,
             image,
-            team
+            team,
+            id
         });
         setName("");
         setJob("");
