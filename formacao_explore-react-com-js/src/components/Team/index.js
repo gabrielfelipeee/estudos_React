@@ -19,7 +19,9 @@ const Team = (props) => {
                         name={element.name}
                         job={element.job}
                         id={element.id}
+                        favorite={element.favorite}
                         whenDelete={props.whenDelete}
+                        whenFavorite={props.whenFavorite}
                     />
                 }
                 )}

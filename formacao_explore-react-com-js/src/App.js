@@ -76,6 +76,16 @@ function App() {
     console.log("funcionou")
   }
 
+
+  const whenFavorite = (id) => {
+    setCollaborators(collaborators.map(item => {
+      if (item.id === id) item.favorite = !item.favorite;
+      console.log(id)
+      return item
+
+    }))
+  }
+
   return (
     <div className="App">
       <Banner />
@@ -95,6 +105,7 @@ function App() {
           color={team.color}
           whenDelete={deleteCollaborator}
           id={team.id}
+          whenFavorite={whenFavorite}
         />
       })}
       <Footer />

@@ -13,7 +13,7 @@ const Form = (props) => {
     const [image, setImage] = useState("");
     const [team, setTeam] = useState("");
     const id = props.idCollaborator;
-
+    const favorite = false;
 
     const [teamName, setTeamName] = useState("");
     const [teamCor, setTeamCor] = useState("");
@@ -27,7 +27,8 @@ const Form = (props) => {
             job,
             image,
             team,
-            id
+            id,
+            favorite
         });
         setName("");
         setJob("");

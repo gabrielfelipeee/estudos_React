@@ -55,3 +55,7 @@
     color: #808080;
     transition: .5s;
 }
+
+.favorite {
+    margin-top: 10px;
+}
