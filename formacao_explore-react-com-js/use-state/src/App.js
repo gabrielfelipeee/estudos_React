@@ -1,25 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { useState } from "react";
 
 function App() {
+
+  const [address, setAddress] = useState({});
+
+  const manipulateAddress = (event) => {
+    const cep = event.target.value;
+    setAddress({cep});
+
+    if (cep && cep.length === 8) {
+      fetch(`https://viacep.com.br/ws/${cep}/json/`)
+        .then(response => response.json())
+        .then(data => {
+          setAddress(previousAddress =>  {
+            return {
+              ...previousAddress, // Estado anterior do setAdress (o cep digitado)
+              cidade: data.localidade,
+              estado: data.uf,
+            }
+          })
+        })
+    }
+  }
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <label>Digite seu CEP</label>
+      <input
+        type="number"
+        onChange={manipulateAddress}
+      />
+
+      <ul>
+        <li>CEP: {address.cep}</li>
+        <li>Cidade: {address.cidade}</li>
+        <li>Estado: {address.estado}</li>
+      </ul>
     </div>
   );
 }
-
 export default App;
