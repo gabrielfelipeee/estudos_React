@@ -71,11 +71,16 @@ function App() {
     setCollaborators(collaborators.filter(item => item.id !== id));
   }
 
+  const registerTeam = (newTeam) => {
+    setTeams([... teams, {... newTeam, id: uuidv4()}]);
+    console.log("funcionou")
+  }
 
   return (
     <div className="App">
       <Banner />
       <Form
+        registerTeam={registerTeam}
         teams={teams.map(element => element.name)}
         registeredCollaborator={collaborator => newCollaboratorAdded(collaborator)}
         idCollaborator={uuidv4()}

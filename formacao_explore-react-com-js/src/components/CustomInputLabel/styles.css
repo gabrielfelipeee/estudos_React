@@ -17,8 +17,17 @@
 .container-input-label input {
     font-size: 16px;
     background-color: #fff;
-    padding: 16px;
     width: 100%;
     box-shadow: 10 10 30  rgba(0, 0, 0, 0.06);
     border: none;
-};
+}
+
+.input-text input {
+    padding: 16px;
+}
+
+.input-color input {
+    height: 40px;
+    padding: 5px 16px;
+    border-radius: 5px;
+}

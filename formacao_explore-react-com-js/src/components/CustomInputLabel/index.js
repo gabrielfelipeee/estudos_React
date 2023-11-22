@@ -1,15 +1,22 @@
 import './styles.css';
 
-const CustomInputLabel = (props) => {
+// type = "text" -> valor padrão
+const CustomInputLabel = ({ type = "text", label, inputValue, obligatory, placeholder, whenChanging }) => {
 
     const whenTyped = event => {
-        props.whenChanging(event.target.value);
+        whenChanging(event.target.value);
     };
 
     return (
-        <div className="container-input-label">
-            <label>{props.label}</label>
-            <input value={props.inputValue} onChange={whenTyped} required={props.obligatory} type="text" placeholder={props.placeholder}></input>
+        <div className={`container-input-label input-${type}`}>
+            <label>{label}</label>
+            <input
+                value={inputValue}
+                onChange={whenTyped}
+                required={obligatory}
+                type={type}
+                placeholder={placeholder}
+            />
         </div>
     )
 };
