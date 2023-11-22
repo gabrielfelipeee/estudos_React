@@ -79,8 +79,9 @@ function App() {
 
   const whenFavorite = (id) => {
     setCollaborators(collaborators.map(item => {
-      if (item.id === id) item.favorite = !item.favorite;
-      console.log(id)
+      if (item.id === id) {
+        item.favorite = !item.favorite;
+      }
       return item
 
     }))
