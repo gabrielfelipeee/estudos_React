@@ -1,0 +1,17 @@
+.container-add {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 80px;
+    margin: 80px;
+}
+
+.container-add h4 {
+    font-weight: normal;
+    font-size: 40px;
+    color: #6278F7;
+}
+
+.container-add img {
+    cursor: pointer;
+}

@@ -5,6 +5,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 import Banner from './components/Banner';
 import Form from './components/Form';
+import Add from './components/Add';
 import Team from './components/Team';
 import Footer from './components/Footer';
 
@@ -87,6 +88,17 @@ function App() {
     }))
   }
 
+  const [display, setDisplay] = useState("none");
+  const addCollaborator = () => {
+    if (display === "none") {
+      setDisplay("flex");
+    } else {
+      setDisplay("none");
+    }
+    return display;
+  };
+
+
   return (
     <div className="App">
       <Banner />
@@ -95,6 +107,7 @@ function App() {
         teams={teams.map(element => element.name)}
         registeredCollaborator={collaborator => newCollaboratorAdded(collaborator)}
         idCollaborator={uuidv4()}
+        display={display}
       />
 
       {teams.map(team => {
@@ -109,6 +122,7 @@ function App() {
           whenFavorite={whenFavorite}
         />
       })}
+      <Add addCollaborator={addCollaborator}/>
       <Footer />
     </div>
   );
