@@ -1,0 +1,15 @@
+@import '../../styles/variables.scss';
+
+
+
+.box-menu {
+    background-color: $white;
+    padding: 42px 0;
+
+    ul {
+        display: flex;
+        justify-content: center;
+        gap: 50px;
+        list-style: none;
+    }
+}
