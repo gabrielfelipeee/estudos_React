@@ -1,0 +1,26 @@
+@import '../../styles/variables.scss';
+
+
+.button {
+    font: normal 400 20px $primary-font;
+    color: $white;
+    background-color: $medium-blue;
+    padding: 12px 32px;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: .5s;
+    box-shadow: 0 4px 6px rgba(23, 117, 232, 0.1);
+    
+    &:hover {
+        box-shadow: 0 8px 12px rgba(23, 117, 232, 0.3);
+        transition: .5s;
+    }
+}
+
+@media screen and (min-width: 744px) {
+    .button {
+        display: none;
+    }
+}

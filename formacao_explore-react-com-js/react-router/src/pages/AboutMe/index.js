@@ -1,8 +1,13 @@
 import './styles.scss';
 
+
+import Banner from '../../components/Banner';
+
+
 const AboutMe = () => {
     return(
-        <div className="box-my">
+        <div className="box-about-me">
+            <Banner/>
             <h1>
                 About Me
             </h1>
