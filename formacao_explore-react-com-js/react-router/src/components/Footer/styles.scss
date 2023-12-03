@@ -1,0 +1,25 @@
+@import '../../styles/variables.scss';
+
+.box-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    background-color: $dark-blue;
+    padding: 32px 0;
+
+    p {
+        font: normal 400 16px $primary-font;
+        color: $white;
+        font-size: 24;
+
+        a {
+            text-decoration: none;
+            color: $medium-blue;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}

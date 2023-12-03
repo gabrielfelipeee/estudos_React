@@ -1,3 +1,23 @@
 .box-home {
-    
+    ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 24px;
+        list-style: none;
+        margin: 32px 10px 48px 10px;
+
+        li {
+            text-align: center;
+            box-shadow: 5px 5px 15px 0px rgba(0, 0, 0, 0.08);
+            border-radius: 10px;
+            padding-bottom: 24px;
+            transition: .5s;
+
+            &:hover {
+                transform: translateY(-20px);
+                transition: .5s;
+            }
+        }
+    }
 }

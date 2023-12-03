@@ -3,11 +3,10 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 
 import Menu from './components/Menu';
-import Banner from './components/Banner';
 
 import Home from "./pages/Home";
 import AboutMe from "./pages/AboutMe";
-
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -19,6 +18,7 @@ function App() {
           <Route path='/aboutme' element={<AboutMe />} />
           <Route path='*' element={<div>Page not fouder</div>} />
         </Routes>
+        <Footer/>
       </BrowserRouter>
     </div>
   )

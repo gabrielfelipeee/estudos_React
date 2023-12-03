@@ -6,12 +6,10 @@ import Banner from '../../components/Banner';
 
 const AboutMe = () => {
     return(
-        <div className="box-about-me">
+        <main className="box-about-me">
             <Banner/>
-            <h1>
-                About Me
-            </h1>
-        </div>
+            
+        </main>
     )
 };
 export default AboutMe;
