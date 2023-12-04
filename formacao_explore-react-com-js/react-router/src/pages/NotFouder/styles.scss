@@ -1,0 +1,81 @@
+@import '../../styles/variables.scss';
+
+
+.box-not-fouder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+    padding: 0 16px;
+    background-color: $dark-blue;
+
+    span {
+        font: normal 700 64px $secondary-font;
+        color: $medium-blue;
+    }
+
+    h1 {
+        font: normal 700 36px $secondary-font;
+        color: $white;
+        line-height: 36px;
+    }
+
+    p {
+        font: normal 400 19px $primary-font;
+        text-align: center;
+        color: $white;
+        line-height: 24px;
+    }
+
+    img {
+        width: 300px;
+        margin-bottom: -90px;
+    }
+}
+
+.space {
+    width: 100%;
+    height: 200px;
+}
+
+
+@media screen and (min-width: 992px) {
+    .box-not-fouder {
+        display: grid;
+        grid-template-areas:
+            'spann spann'
+            'h1 h1'
+            'p p'
+            'button img';
+        justify-content: center;
+        align-items: center;
+        padding: 0 24px;
+
+        span, h1, p, a {
+            text-align: center;
+        }
+        span {
+            grid-area: spann;
+            font-size: 48px;
+        }
+
+        h1 {
+            grid-area: h1;
+            font-size: 48px;
+        }
+
+        p {
+            font: 24px;
+            grid-area: p;
+            max-width: 800px;
+        }
+
+        a {
+            grid-area: button;
+        }
+
+        img {
+            grid-area: img;
+        }
+    }
+}

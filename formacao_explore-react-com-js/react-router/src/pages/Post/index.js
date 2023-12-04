@@ -4,7 +4,9 @@ import './styles.scss';
 
 import posts from '../../mocks/posts.json';
 
+
 import PostTemplate from '../../components/PostTemplate';
+import NotFouder from '../NotFouder';
 
 
 
@@ -13,7 +15,7 @@ const Post = () => {
     const post = posts.find(post => post.id === Number(params.id));
 
     if (!post) {
-        return <h1>Page not fouder</h1>
+        return <NotFouder />
     }
 
     return (
