@@ -1,3 +1,63 @@
+@import '../../styles/variables.scss';
+
 .box-about-me {
-    
+    padding: 32px 20px;
+
+    h3 {
+        font: normal 700 24px $secondary-font;
+    }
+
+    img {
+        width: 250px;
+        margin: 32px 0;
+    }
+
+    p {
+        font: normal 400 16px $primary-font;
+        text-align: justify;
+        line-height: 24px;
+        margin-bottom: 16px;
+        text-indent: 32px;
+    }
+}
+
+@media screen and (min-width: 778px) {
+    .box-about-me {
+        padding: 64px;
+
+        h3 {
+            font-size: 40px;
+            margin-bottom: 32px;
+        }
+
+        img {
+            float: right;
+            width: 400px;
+            margin-left: 32px;
+        }
+
+        p {
+            font-size: 20px;
+            line-height: 32px;
+        }
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .box-about-me {
+        padding: 120px;
+
+        h3 {
+            font-size: 40px;
+        }
+
+        img {
+            width: 500px;
+        }
+
+        p {
+            font-size: 24px;
+            line-height: 36px;
+        }
+    }
 }
