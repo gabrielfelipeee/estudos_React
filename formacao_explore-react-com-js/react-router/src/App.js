@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 
 import Menu from './components/Menu';
+import Post from './pages/Post';
 
 import DefaultPage from './components/DefaultPage';
 import Home from "./pages/Home";
@@ -23,6 +24,7 @@ function App() {
           <Route path='/' element={<DefaultPage />}>
             <Route index element={<Home />} /> // mesma rota do pai
             <Route path='aboutme' element={<AboutMe />} />
+            <Route path='posts/:id' element={<Post />} />
           </Route>
 
 
