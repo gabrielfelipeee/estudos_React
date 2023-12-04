@@ -4,32 +4,35 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import Menu from './components/Menu';
 
+import DefaultPage from './components/DefaultPage';
 import Home from "./pages/Home";
 import AboutMe from "./pages/AboutMe";
 import Footer from './components/Footer';
+
 
 function App() {
   return (
     <div>
       <BrowserRouter>
         <Menu />
+
+
         <Routes>
-          <Route path='/' element={<Home />} /> //
-          <Route path='/aboutme' element={<AboutMe />} />
+
+          // Rotas aninhadas
+          <Route path='/' element={<DefaultPage />}>
+            <Route index element={<Home />} /> // mesma rota do pai
+            <Route path='aboutme' element={<AboutMe />} />
+          </Route>
+
+
           <Route path='*' element={<div>Page not fouder</div>} />
         </Routes>
-        <Footer/>
+
+
+        <Footer />
       </BrowserRouter>
     </div>
   )
 }
 export default App;
-
-
-/*
-BrowserRouter: Envolve as rotas da sua aplicação utilizando a API de histórico do navegador;
-      
-Routes: Define as diferentes rotas da sua aplicação;
-
-Route: Renderiza um determinado componente.
-*/
