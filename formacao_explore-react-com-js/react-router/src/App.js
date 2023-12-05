@@ -5,7 +5,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Menu from './components/Menu';
 import Post from './pages/Post';
 import NotFouder from './pages/NotFouder';
-
+import ScrollToTop from './components/ScrollToTop';
 
 import DefaultPage from './components/DefaultPage';
 import Home from "./pages/Home";
@@ -17,6 +17,7 @@ function App() {
   return (
     <div>
       <BrowserRouter>
+        <ScrollToTop />
         <Menu />
 
 

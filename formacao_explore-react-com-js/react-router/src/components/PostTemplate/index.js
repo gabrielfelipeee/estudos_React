@@ -1,7 +1,7 @@
 import './styles.scss';
 
 
-
+import CardPost from '../CardPost';
 
 const PostTemplate = (props) => {
     return (
@@ -15,6 +15,8 @@ const PostTemplate = (props) => {
             <>
                 {props.children}
             </>
+
+            
         </article>
     )
 }
