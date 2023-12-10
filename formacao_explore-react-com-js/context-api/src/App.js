@@ -20,14 +20,15 @@ function App() {
             path='/'
             element={<Login />}
           />
+
+          <Route
+            path='/feira'
+            element={<Feira />}
+          />
         </Routes>
       </UsuarioProvider>
 
       <Routes>
-        <Route
-          path='/feira'
-          element={<Feira />}
-        />
         <Route
           path='/carrinho'
           element={<Carrinho />}

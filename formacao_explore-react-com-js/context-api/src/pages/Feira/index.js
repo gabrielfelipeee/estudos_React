@@ -1,3 +1,4 @@
+import React, { useContext } from 'react';
 import {
   Container,
   Header,
@@ -8,14 +9,22 @@ import Produto from 'components/Produto';
 import NavBar from './NavBar';
 
 
+
+import { UsuarioContext } from 'commom/context/Usuario';
+
+
+
 function Feira() {
+
+  const {nome, saldo} = useContext(UsuarioContext);
+
   return (
     <Container>
       <NavBar />
       <Header>
         <div>
-          <h2> Olá!</h2>
-          <h3> Saldo: R$</h3>
+          <h2> Olá, {nome}!</h2>
+          <h3> Saldo: R$ {saldo}</h3>
         </div>
         <p>Encontre os melhores produtos orgânicos!</p>
       </Header>

@@ -1,12 +1,13 @@
 import { createContext, useState } from "react";
 
 
+// Criando um contexto
+export const UsuarioContext = createContext(); 
+ // Nome do contexto
+UsuarioContext.displayName = "Usuario";
 
-export const UsuarioContext = createContext();
 
-
-
-
+// States do contexto
 const UsuarioProvider = (props) => {
     const [nome, setNome] = useState("");
     const [saldo, setSaldo] = useState(0);
