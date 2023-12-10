@@ -1,9 +1,14 @@
 import { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
+import { UsuarioContext } from 'commom/context/Usuario';
+
+
+
 import Login from 'pages/Login';
 import Carrinho from 'pages/Carrinho';
 import Feira from 'pages/Feira';
+
 
 
 function App() {
@@ -12,19 +17,16 @@ function App() {
 
   return (
     <BrowserRouter>
+      <UsuarioContext.Provider value={{nome, setNome, saldo, setSaldo}}>
+        <Routes>
+          <Route
+            exact
+            path='/'
+            element={<Login />}
+          />
+        </Routes>
+      </UsuarioContext.Provider>
       <Routes>
-        <Route
-          exact
-          path='/'
-          element={
-            <Login
-              nome={nome}
-              setNome={setNome}
-              saldo={saldo}
-              setSaldo={setSaldo}
-            />
-          }
-        />
         <Route
           path='/feira'
           element={<Feira />}
@@ -34,7 +36,7 @@ function App() {
           element={<Carrinho />}
         />
       </Routes>
-    </BrowserRouter>
+    </BrowserRouter >
   );
 }
 export default App;

@@ -1,3 +1,4 @@
+import React, {useContext} from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@material-ui/core';
 import {
@@ -11,8 +12,13 @@ import {
   InputAdornment
 } from '@material-ui/core';
 
+import { UsuarioContext } from 'commom/context/Usuario';
 
-function Login(props) {
+function Login() {
+
+  const {nome, setNome, saldo, setSaldo} = useContext(UsuarioContext);
+
+
   const navigate = useNavigate();
 
   return (
@@ -26,8 +32,8 @@ function Login(props) {
         </InputLabel>
         <Input
           type="text"
-          value={props.nome}
-          onChange={event => props.setNome(event.target.value)}
+          value={nome}
+          onChange={event => setNome(event.target.value)}
         />
       </InputContainer>
       <InputContainer>
@@ -36,8 +42,8 @@ function Login(props) {
         </InputLabel>
         <Input
           type="number"
-          value={props.saldo}
-          onChange={event => props.setSaldo(event.target.value)}
+          value={saldo}
+          onChange={event => setSaldo(event.target.value)}
           startAdornment={
             <InputAdornment position="start">
               R$
@@ -53,6 +59,6 @@ function Login(props) {
         Avançar
       </Button>
     </Container>
-  )
-};
+  );
+}
 export default Login;
