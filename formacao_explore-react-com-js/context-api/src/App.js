@@ -1,8 +1,7 @@
-import { useState } from 'react';
+import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
-import { UsuarioContext } from 'commom/context/Usuario';
-
+import UsuarioProvider from 'commom/context/Usuario';
 
 
 import Login from 'pages/Login';
@@ -12,12 +11,9 @@ import Feira from 'pages/Feira';
 
 
 function App() {
-  const [nome, setNome] = useState("");
-  const [saldo, setSaldo] = useState(0);
-
   return (
     <BrowserRouter>
-      <UsuarioContext.Provider value={{nome, setNome, saldo, setSaldo}}>
+      <UsuarioProvider>
         <Routes>
           <Route
             exact
@@ -25,7 +21,8 @@ function App() {
             element={<Login />}
           />
         </Routes>
-      </UsuarioContext.Provider>
+      </UsuarioProvider>
+
       <Routes>
         <Route
           path='/feira'
