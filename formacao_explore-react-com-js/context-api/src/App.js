@@ -7,6 +7,7 @@ import UsuarioProvider from 'commom/context/Usuario';
 import Login from 'pages/Login';
 import Carrinho from 'pages/Carrinho';
 import Feira from 'pages/Feira';
+import CarrinhoProvider from 'commom/context/Carrinho';
 
 
 
@@ -23,7 +24,11 @@ function App() {
 
           <Route
             path='/feira'
-            element={<Feira />}
+            element={
+              <CarrinhoProvider>
+                <Feira />
+              </CarrinhoProvider>
+            }
           />
         </Routes>
       </UsuarioProvider>
