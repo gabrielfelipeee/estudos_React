@@ -16,7 +16,7 @@ import { UsuarioContext } from 'commom/context/Usuario';
 
 function Login() {
 
-  const {nome, setNome, saldo, setSaldo} = useContext(UsuarioContext);
+  const { nome, setNome, saldo, setSaldo } = useContext(UsuarioContext);
 
 
   const navigate = useNavigate();
@@ -52,6 +52,7 @@ function Login() {
         />
       </InputContainer>
       <Button
+        disabled={nome.length < 3 || saldo < 1}
         variant="contained"
         color="primary"
         onClick={() => navigate('/feira')}
