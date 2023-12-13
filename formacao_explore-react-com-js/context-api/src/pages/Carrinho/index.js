@@ -3,14 +3,31 @@ import MuiAlert from '@material-ui/lab/Alert';
 import { useState } from 'react';
 import { Container, Voltar, TotalContainer, PagamentoContainer } from './styles';
 
+
+import Produto from 'components/Produto';
+
+import { useCarrinhoContext } from 'commom/context/Carrinho';
+
+
 function Carrinho() {
   const [openSnackbar, setOpenSnackbar] = useState(false);
+  const { carrinho } = useCarrinhoContext();
+
+
   return (
     <Container>
       <Voltar />
       <h2>
         Carrinho
       </h2>
+
+      {carrinho.map(produto =>
+        <Produto
+          key={produto.id}
+          {...produto}
+        />
+      )};
+
       <PagamentoContainer>
         <InputLabel> Forma de Pagamento </InputLabel>
       </PagamentoContainer>

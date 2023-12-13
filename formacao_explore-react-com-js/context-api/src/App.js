@@ -2,44 +2,48 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 import UsuarioProvider from 'commom/context/Usuario';
-
+import CarrinhoProvider from 'commom/context/Carrinho';
 
 import Login from 'pages/Login';
 import Carrinho from 'pages/Carrinho';
 import Feira from 'pages/Feira';
-import CarrinhoProvider from 'commom/context/Carrinho';
+
 
 
 
 function App() {
+  const CarrinhoWrapper = ({ children }) => (
+    <CarrinhoProvider>
+      {children}
+    </CarrinhoProvider>
+  );
+
   return (
     <BrowserRouter>
       <UsuarioProvider>
         <Routes>
-          <Route
-            exact
-            path='/'
-            element={<Login />}
-          />
+          <Route exact path='/' element={<Login />} />
 
           <Route
             path='/feira'
             element={
-              <CarrinhoProvider>
+              <CarrinhoWrapper>
                 <Feira />
-              </CarrinhoProvider>
+              </CarrinhoWrapper>
+            }
+          />
+
+          <Route
+            path='/carrinho'
+            element={
+              <CarrinhoWrapper>
+                <Carrinho />
+              </CarrinhoWrapper>
             }
           />
         </Routes>
       </UsuarioProvider>
-
-      <Routes>
-        <Route
-          path='/carrinho'
-          element={<Carrinho />}
-        />
-      </Routes>
-    </BrowserRouter >
+    </BrowserRouter>
   );
 }
 export default App;
