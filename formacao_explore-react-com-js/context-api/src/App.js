@@ -3,6 +3,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 import UsuarioProvider from 'commom/context/Usuario';
 import CarrinhoProvider from 'commom/context/Carrinho';
+import PagamentoProvider from 'commom/context/Pagamento';
+
 
 import Login from 'pages/Login';
 import Carrinho from 'pages/Carrinho';
@@ -37,7 +39,9 @@ function App() {
             path='/carrinho'
             element={
               <CarrinhoWrapper>
-                <Carrinho />
+                <PagamentoProvider>
+                  <Carrinho />
+                </PagamentoProvider>
               </CarrinhoWrapper>
             }
           />
