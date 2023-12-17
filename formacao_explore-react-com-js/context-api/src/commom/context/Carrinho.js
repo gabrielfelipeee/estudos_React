@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
+import { usePagamentoContext } from "./Pagamento";
 
 export const CarrinhoContext = createContext();
 CarrinhoContext.displayName = "Carrinho";
@@ -7,6 +8,7 @@ CarrinhoContext.displayName = "Carrinho";
 const CarrinhoProvider = (props) => {
     const [carrinho, setCarrinho] = useState([]);
     const [quantidadeDeProdutos, setQuantidadeDeProdutos] = useState(0);
+    const [totalCarrinho, setTotalCarrinho] = useState(0);
 
 
     return (
@@ -14,7 +16,9 @@ const CarrinhoProvider = (props) => {
             carrinho,
             setCarrinho,
             quantidadeDeProdutos,
-            setQuantidadeDeProdutos
+            setQuantidadeDeProdutos,
+            totalCarrinho,
+            setTotalCarrinho
         }}
         >
             {props.children}
@@ -31,11 +35,12 @@ export const useCarrinhoContext = () => {
         carrinho,
         setCarrinho,
         quantidadeDeProdutos,
-        setQuantidadeDeProdutos
+        setQuantidadeDeProdutos,
+        totalCarrinho,
+        setTotalCarrinho
     } = useContext(CarrinhoContext);
 
-
-
+ 
 
     const mudarQuantidade = (id, quantidade) => {
         return carrinho.map(item => {
@@ -73,11 +78,25 @@ export const useCarrinhoContext = () => {
 
 
     useEffect(() => {
-        const quantidade = carrinho.reduce((contador, produto) => 
-        contador + produto.quantidade, 0);
+        const { quantidade, total } = carrinho.reduce((contador, produto) =>
+        ({
+            quantidade: contador.quantidade + produto.quantidade,
+            total: contador.total + (produto.valor * produto.quantidade)
+        }), {
+            quantidade: 0,
+            total: 0
+        });
 
         setQuantidadeDeProdutos(quantidade);
-    }, [carrinho, setQuantidadeDeProdutos]);
+        setTotalCarrinho(total.toFixed(2));
+    }, [carrinho, setQuantidadeDeProdutos, setTotalCarrinho]);
 
-    return { carrinho, setCarrinho, addProduto, removeProduto, quantidadeDeProdutos }
+    return {
+        carrinho,
+        setCarrinho,
+        addProduto,
+        removeProduto,
+        quantidadeDeProdutos,
+        totalCarrinho
+    }
 };

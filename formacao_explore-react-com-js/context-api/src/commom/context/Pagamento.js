@@ -26,13 +26,13 @@ const PagamentoProvider = (props) => {
             id: 4
         }
     ];
-    const [formaPagamaneto, setFormaPagamento] = useState(tiposDePagamentos[0]);
+    const [formaPagamento, setFormaPagamento] = useState(tiposDePagamentos[0]);
 
     return (
         <PagamentoContext.Provider value={
             {
                 tiposDePagamentos,
-                formaPagamaneto,
+                formaPagamento,
                 setFormaPagamento
             }
         }>
@@ -45,7 +45,7 @@ export default PagamentoProvider;
 
 const usePagamentoContext = () => {
     const {
-        formaPagamaneto,
+        formaPagamento,
         setFormaPagamento,
         tiposDePagamentos
     } = useContext(PagamentoContext);
@@ -57,7 +57,7 @@ const usePagamentoContext = () => {
 
     return {
         tiposDePagamentos,
-        formaPagamaneto,
+        formaPagamento,
         mudarPagamento
     }
 }
