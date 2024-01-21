@@ -1,16 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import Botao from "@/components/Botao";
 import ListaProdutosCarrinho from "@/components/ListaProdutosCarrinho";
 import TotalCarrinho from "./TotalCarrinho";
 import Titulo from "@/components/Titulo";
 
-const CarrinhoSuspenso = ({
-  carrinho,
-  adicionarProduto,
-  removerProduto,
-  removerProdutoCarrinho,
-  valorTotalCarrinho,
-}) => {
+
+import useCarrinhoContext from "../../hooks/useCarrinhoContext";
+
+
+
+
+const CarrinhoSuspenso = () => {
+  const { carrinho } = useCarrinhoContext();
+
   return (
     <div
       className="offcanvas offcanvas-end text-bg-dark"
@@ -36,11 +38,8 @@ const CarrinhoSuspenso = ({
       <div className="offcanvas-body">
         <ListaProdutosCarrinho
           carrinho={carrinho}
-          adicionarProduto={adicionarProduto}
-          removerProduto={removerProduto}
-          removerProdutoCarrinho={removerProdutoCarrinho}
         />
-        <TotalCarrinho valorTotalCarrinho={valorTotalCarrinho} />
+        {/*<TotalCarrinho valorTotalCarrinho={valorTotalCarrinho} /> */}
       </div>
     </div>
   );
