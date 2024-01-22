@@ -3,12 +3,13 @@ import Quantidade from "@/components/Quantidade";
 import Botao from "@/components/Botao";
 import ValorFormatado from "@/components/ValorFormatado";
 
-const ItemCarrinhoSuspenso = ({
-  itemCarrinho,
-  removerProdutoCarrinho,
-  adicionarProduto,
-  removerProduto,
-}) => {
+
+import useCarrinhoContext from "../../../hooks/useCarrinhoContext";
+
+const ItemCarrinhoSuspenso = ({itemCarrinho}) => {
+  const { adicionarProduto, removerProduto, deletarProduto } = useCarrinhoContext();
+
+
   return (
     <li>
       <>
@@ -30,7 +31,7 @@ const ItemCarrinhoSuspenso = ({
           <Botao
             variant="deleteItem"
             aria-label="Excluir"
-            onClick={() => removerProdutoCarrinho(itemCarrinho.id)}
+            onClick={() => deletarProduto(itemCarrinho.id)}
           >
             delete_forever
           </Botao>
