@@ -11,7 +11,7 @@ import useCarrinhoContext from "../../hooks/useCarrinhoContext";
 
 
 const CarrinhoSuspenso = () => {
-  const { carrinho } = useCarrinhoContext();
+  const { carrinho, valorTotal } = useCarrinhoContext();
 
   return (
     <div
@@ -39,7 +39,7 @@ const CarrinhoSuspenso = () => {
         <ListaProdutosCarrinho
           carrinho={carrinho}
         />
-        {/*<TotalCarrinho valorTotalCarrinho={valorTotalCarrinho} /> */}
+        <TotalCarrinho valorTotalCarrinho={valorTotal} />
       </div>
     </div>
   );
