@@ -5,7 +5,7 @@ import TotalCarrinho from "./TotalCarrinho";
 import Titulo from "@/components/Titulo";
 
 
-import useCarrinhoContext from "../../hooks/useCarrinhoContext";
+import { useCarrinhoContext } from "../../hooks/useCarrinhoContext";
 
 
 

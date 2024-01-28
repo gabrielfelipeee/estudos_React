@@ -2,7 +2,9 @@ import React from "react";
 import { useLocation } from "react-router-dom";
 import ItemCarrinhoSuspenso from "@/components/CarrinhoSuspenso/ItemCarrinhoSuspenso";
 import ItemCarrinho from "@/components/ItemCarrinho";
-import useCarrinhoContext from "../../hooks/useCarrinhoContext";
+
+
+import { useCarrinhoContext } from "../../hooks/useCarrinhoContext";
 
 
 const ListaProdutosCarrinho = () => {

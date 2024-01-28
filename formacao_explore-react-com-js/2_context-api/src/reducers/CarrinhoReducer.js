@@ -18,10 +18,10 @@ const carrinhoReducer = ((state, action) => {
                 {/* state é o carrinho */ }
                 return [...state, novoProduto];
             } else {
-                return state.map((produto, index) =>
+                return state.map((item, index) =>
                     index === produto
-                        ? { ...produto, quantidade: produto.quantidade + 1 }
-                        : produto
+                        ? { ...item, quantidade: item.quantidade + 1 }
+                        : item
                 );
             }
 

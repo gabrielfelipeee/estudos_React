@@ -3,7 +3,7 @@ import Titulo from "@/components/Titulo";
 
 import produtos from "@/mocks/produtos.json";
 
-import useCarrinhoContext from "../../hooks/useCarrinhoContext";
+import { useCarrinhoContext } from "../../hooks/useCarrinhoContext";
 
 import Produto from "./Produto";
 

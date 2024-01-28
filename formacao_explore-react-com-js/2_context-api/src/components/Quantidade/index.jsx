@@ -1,21 +1,21 @@
-import React from "react";
+import React, { useCallback } from "react";
 import Botao from "@/components/Botao";
 import Titulo from "@/components/Titulo";
 import { useLocation } from "react-router-dom";
-import useCarrinhoContext from "../../hooks/useCarrinhoContext";
 
-const Quantidade = ({ itemCarrinho }) => {
+
+const Quantidade = ({ itemCarrinho, adicionarProduto, removerProduto }) => {
   const location = useLocation();
-  const { adicionarProduto, removerProduto } = useCarrinhoContext();
 
 
 
   return (
     <div
-      className={`d-flex flex-column align-items-center ${location.pathname === "/carrinho"
+      className={`d-flex flex-column align-items-center ${
+        location.pathname === "/carrinho"
           ? "align-items-md-center"
           : "align-items-md-start"
-        } gap-3`}
+      } gap-3`}
     >
       <Titulo element="h5" className="m-0 fs-6">
         Quantidade

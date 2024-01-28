@@ -4,9 +4,9 @@ import BotaoTogglerMenu from "./BotaoTogglerMenu";
 import BotaoCarrinho from "./BotaoCarrinho";
 import CampoTexto from "@/components/CampoTexto";
 import Botao from "@/components/Botao";
-
 import { useLocation } from "react-router-dom";
-import useCarrinhoContext from "../../hooks/useCarrinhoContext";
+ 
+import {useCarrinhoContext} from "../../hooks/useCarrinhoContext";
 
 const BarraNavegacao = () => {
   const location = useLocation();
