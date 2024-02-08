@@ -1,0 +1,9 @@
+@import './abstract/variables.scss';
+
+body {
+    margin: 0;
+    box-sizing: border-box;
+    font-family: $font;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
