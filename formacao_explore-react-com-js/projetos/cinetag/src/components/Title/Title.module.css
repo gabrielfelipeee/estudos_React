@@ -1,0 +1,12 @@
+.title h1 {
+    font-weight: 500;
+    font-size: 2rem;
+    text-align: center;
+    margin: 40px;
+}
+
+.title h2 {
+    font-weight: 700;
+    font-size: 1rem;
+    margin: 0;
+}
