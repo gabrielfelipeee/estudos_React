@@ -2,11 +2,18 @@ import styles from './Card.module.css';
 import { IoHeartOutline, IoHeartSharp } from "react-icons/io5";
 
 
-
 import Title from '../Title';
 
+import useFavoritesContext from '../../hooks/useFavoritesContext';
 
-const Card = ({ id, titulo, capa, link }) => {
+const Card = ({ titulo, capa, id, link }) => {
+    const { addFavorite, isFavorited } = useFavoritesContext();
+
+    const handleFavoriteClick = () => {
+        addFavorite({ titulo, capa, id, link });
+    };
+
+
     return (
         <div className={styles.card}>
             <img src={capa} alt={`Capa do vídeo: ${titulo}`} />
@@ -14,7 +21,17 @@ const Card = ({ id, titulo, capa, link }) => {
                 <Title>
                     <h2>{titulo}</h2>
                 </Title>
-                <IoHeartOutline size={24} className={styles.heart}/>
+
+                {isFavorited(id)
+                    ? <IoHeartSharp
+                        className={styles.heart}
+                        onClick={handleFavoriteClick}
+                    />
+                    : <IoHeartOutline
+                        className={styles.heart}
+                        onClick={handleFavoriteClick}
+                    />
+                }
             </div>
         </div>
     )

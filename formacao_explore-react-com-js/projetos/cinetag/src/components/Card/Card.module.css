@@ -4,6 +4,12 @@
     height: 528px;
     border-bottom-left-radius: 10px;
     border-top-right-radius: 10px;
+    transition: .5s ease-in-out;
+    cursor: pointer;
+}
+.card:hover {
+    transform: translateY(-10px);
+    transition: .5s ease-in-out;
 }
 
 .card img {
@@ -18,4 +24,5 @@
 
 .card .areaText .heart {
     margin-top: 15px;
+    font-size: 24px;
 }
