@@ -1,6 +1,4 @@
-import styles from './Home.module.css';
-
-import db from '../../mocks/db.json';
+import { useEffect, useState } from 'react';
 import bannerHome from '../../assets/banner-home.png';
 
 
@@ -10,7 +8,16 @@ import ContainerVideos from '../../components/ContainerVideos';
 import Card from '../../components/Card';
 
 
+
 const Home = () => {
+    const [videos, setVideos] = useState([]);
+    useEffect(() => {
+        fetch('https://my-json-server.typicode.com/gabrielfelipeee/cinetag-api/videos')
+            .then(respone => respone.json())
+            .then(data => setVideos(data))
+    }, []);
+
+
     return (
         <main>
             <Banner image={bannerHome} />
@@ -19,8 +26,8 @@ const Home = () => {
             </Title>
 
             <ContainerVideos>
-                {db.map(video =>
-                    <Card {...video} key={video.id}/>
+                {videos.map(video =>
+                    <Card {...video} key={video.id} />
                 )}
             </ContainerVideos>
         </main>
