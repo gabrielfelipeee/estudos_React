@@ -1,4 +1,5 @@
 import styles from './Favorites.module.css';
+import { TbStarOff } from "react-icons/tb";
 
 
 
@@ -16,20 +17,28 @@ import useFavoritesContext from '../../hooks/useFavoritesContext';
 
 const Favorites = () => {
     const { favorites } = useFavoritesContext();
-    console.log(favorites)
-    return (
-        <main>
-            <Banner image={bannerFavorites} />
-            <Title>
-                <h1>Meus Favoritos</h1>
-            </Title>
 
-            <ContainerVideos>
-                {favorites.map(video =>
-                    <Card {...video} key={video.id} />
-                )}
-            </ContainerVideos>
-        </main>
+    return (
+        <>
+            {favorites.length > 0
+                ? <main>
+                    <Banner image={bannerFavorites} />
+                    <Title>
+                        <h1>Meus Favoritos</h1>
+                    </Title>
+
+                    <ContainerVideos>
+                        {favorites.map(video =>
+                            <Card {...video} key={video.id} />
+                        )}
+                    </ContainerVideos>
+                </main>
+                : <main className={styles.boxStarOff}>
+                    <p>Nenhum vídeo adicionado aos favoritos!</p>
+                    <TbStarOff className={styles.starOff} />
+                </main>}
+
+        </>
     )
 };
 export default Favorites;

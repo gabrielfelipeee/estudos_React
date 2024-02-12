@@ -1,0 +1,16 @@
+.boxStarOff {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 137px);
+    color: #212529;
+}
+.boxStarOff p {
+    font-size: 2rem;
+    text-align: center;
+}
+
+.starOff {
+    font-size: 300px;
+}
