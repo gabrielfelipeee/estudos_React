@@ -1,0 +1,18 @@
+.box-text-field {
+    display: flex;
+    flex-direction: column;
+    gap: .2rem;
+
+    label {
+        font-weight: bold;
+        margin-top: 1rem;
+    }
+
+    input {
+        border: 1px solid rgb(218, 218, 218);
+        outline: none;
+        padding: .5rem;
+        border-radius: 10px;
+        font-size: 1.1rem;
+    }
+}

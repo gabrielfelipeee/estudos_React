@@ -1,0 +1,12 @@
+.box-header {
+    background-color: rgb(247, 247, 247);
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.10);
+    padding: 1.5rem;
+    position: fixed;
+    top: 0;
+    min-width: 100%;
+
+    h1 {
+        text-align: center;
+    }
+}
