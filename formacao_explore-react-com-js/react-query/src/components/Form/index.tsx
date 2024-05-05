@@ -1,25 +1,24 @@
 import './styles.scss';
 import { IoMdClose } from "react-icons/io";
 import TextField from '../TextField';
+import { v4 as uuidv4 } from 'uuid';
 import { useEffect, useState } from 'react';
-import { useMutation } from 'react-query';
-import useFoodMutate from '../../hooks/useFoodMutate';
+import { useFoodAdd } from '../../hooks/useFoodMutate';
 
 interface IFormProps {
     control: () => void
 }
 
-
 const Form = ({ control }: IFormProps) => {
     const [name, setName] = useState("");
     const [price, setPrice] = useState("");
     const [image, setImage] = useState("");
-
-    const { mutate, isSuccess,  } = useFoodMutate();
+    const id = uuidv4();
+    const { mutate, isSuccess, } = useFoodAdd();
 
     const submit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        const data = { name, image, price }
+        const data = { id, name, image, price }
         mutate(data);
 
         setName("");
@@ -29,7 +28,6 @@ const Form = ({ control }: IFormProps) => {
 
     useEffect(() => {
         control();
-
     }, [isSuccess])
 
 

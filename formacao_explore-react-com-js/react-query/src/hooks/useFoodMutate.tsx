@@ -8,17 +8,33 @@ const postFood = async (data: IFoodData) => {
     const response = await axios.post(API_URL + '/foods', data);
     return response;
 }
-
-const useFoodMutate = () => {
+const useFoodAdd = () => {
     const queryClient = useQueryClient();
-
-    const mutate = useMutation({
+    const mutateAdd = useMutation({
         mutationFn: postFood,
-        mutationKey: ['foodPost'],
+        mutationKey: ['food-post'],
         onSuccess: () => {
             queryClient.invalidateQueries(['food-data'])
         }
     })
-    return mutate
+    return mutateAdd;
 }
-export default useFoodMutate;
+
+
+const deleteFood = async (id: string) => {
+    const response = await axios.delete(`${API_URL}/foods/${id}`);
+    return response;
+}
+const useFoodDelete = () => {
+    const queryClient = useQueryClient();
+    const mutateDelete = useMutation({
+        mutationFn: deleteFood,
+        mutationKey: ['food-delete'],
+        onSuccess: () => {
+            queryClient.invalidateQueries(['food-data'])
+        }
+    })
+    return mutateDelete;
+}
+
+export { useFoodDelete, useFoodAdd }

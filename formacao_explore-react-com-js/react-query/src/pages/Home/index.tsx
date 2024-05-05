@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import Card from '../../components/Card';
 import Form from '../../components/Form';
 import useFoodData from '../../hooks/useFoodData';
-import { IFoodData, IFoodResponse } from '../../interfaces/IFoodData';
+import { IFoodData } from '../../interfaces/IFoodData';
 
 
 const Home = () => {
@@ -33,7 +33,7 @@ const Home = () => {
                 {isError && <p>Erro</p>}
                 {
                     !isLoading &&
-                    data?.map((item: IFoodData) => <Card key={item.id} {...item} />)
+                    data?.map((item: IFoodData) => <Card key={item.id}{...item} />)
                 }
 
             </div>

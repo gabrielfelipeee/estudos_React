@@ -1,6 +1,6 @@
 import axios, { AxiosPromise } from "axios";
 import { useQuery } from "react-query";
-import { IFoodData, IFoodResponse } from "../interfaces/IFoodData";
+import { IFoodResponse } from "../interfaces/IFoodData";
 
 const API_URL = 'http://localhost:3000';
 
