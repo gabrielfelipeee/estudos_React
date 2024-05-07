@@ -1,29 +1,15 @@
 import './styles.scss';
-import { useEffect, useState } from 'react';
 import Card from '../../components/Card';
 import Form from '../../components/Form';
 import useFoodData from '../../hooks/useFoodData';
 import { IFoodData } from '../../interfaces/IFoodData';
+import { CardProvider } from '../../context/CardContext';
+import { FormProvider } from '../../context/FormContext';
+import useHome from '../../hooks/useHome';
 
 
 const Home = () => {
-    const [controllerModal, setControllerModal] = useState("hide");
-    const openModal = () => {
-        setControllerModal("");
-    }
-    const closeModal = () => {
-        setControllerModal("hide");
-    }
-    useEffect(() => {
-        const body = document.body;
-        controllerModal === "" ? body.classList.add("body-hidden") : "";
-
-        return () => {
-            body.classList.remove("body-hidden");
-        }
-    }, [controllerModal]);
-
-
+    const {openModal, closeModal, controllerModal} = useHome();
     const { data, isLoading, isError } = useFoodData();
 
     return (
@@ -33,7 +19,11 @@ const Home = () => {
                 {isError && <p>Erro</p>}
                 {
                     !isLoading &&
-                    data?.map((item: IFoodData) => <Card key={item.id}{...item} />)
+                    data?.map((item: IFoodData) => {
+                        return <CardProvider key={item.id}>
+                            <Card {...item} />
+                        </CardProvider>
+                    })
                 }
 
             </div>
@@ -51,7 +41,9 @@ const Home = () => {
             ></div>
 
             <div className={`modal ${controllerModal}`}>
-                <Form control={closeModal} />
+                <FormProvider>
+                    <Form controlModal={closeModal} />
+                </FormProvider>
             </div>
         </div>
     )

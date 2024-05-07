@@ -1,12 +1,11 @@
-import axios, { AxiosPromise } from "axios";
+import axios from "axios";
 import { useQuery } from "react-query";
-import { IFoodResponse } from "../interfaces/IFoodData";
 
 const API_URL = 'http://localhost:3000';
 
 // Retorna uma promise do tipo IFoodData
-const fetchData = async (): AxiosPromise<IFoodResponse> => {
-    const response = await axios.get<IFoodResponse>(API_URL + '/foods');
+const fetchData = async () => {
+    const response = await axios.get(API_URL + '/foods');
     return response;
 }
 

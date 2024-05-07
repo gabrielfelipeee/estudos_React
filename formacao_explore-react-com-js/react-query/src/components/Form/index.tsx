@@ -1,42 +1,35 @@
 import './styles.scss';
 import { IoMdClose } from "react-icons/io";
 import TextField from '../TextField';
-import { v4 as uuidv4 } from 'uuid';
-import { useEffect, useState } from 'react';
-import { useFoodAdd } from '../../hooks/useFoodMutate';
+import { useEffect} from 'react';
+import useForm from '../../hooks/useForm';
 
 interface IFormProps {
-    control: () => void
+    controlModal: () => void
 }
 
-const Form = ({ control }: IFormProps) => {
-    const [name, setName] = useState("");
-    const [price, setPrice] = useState("");
-    const [image, setImage] = useState("");
-    const id = uuidv4();
-    const { mutate, isSuccess, } = useFoodAdd();
-
-    const submit = (event: React.FormEvent<HTMLFormElement>) => {
-        event.preventDefault();
-        const data = { id, name, image, price }
-        mutate(data);
-
-        setName("");
-        setPrice("");
-        setImage("");
-    };
+const Form = ({ controlModal }: IFormProps) => {
+    const {
+        name,
+        setName,
+        price,
+        changePrice,
+        image,
+        setImage,
+        submit,
+        isSuccess
+    } = useForm();
 
     useEffect(() => {
-        control();
+        controlModal();
     }, [isSuccess])
-
 
     return (
         <div className="box-form">
             <h2>Cadastre um novo produto no Cardápio</h2>
             <IoMdClose
                 className="icon-close"
-                onClick={control}
+                onClick={controlModal}
             />
             <form onSubmit={submit}>
                 <TextField
@@ -51,7 +44,7 @@ const Form = ({ control }: IFormProps) => {
                     labelInput="Preço"
                     placeholder="Insira o preço do produto"
                     valueInput={price}
-                    eventInput={event => setPrice(event.target.value)}
+                    eventInput={changePrice}
                 />
                 <TextField
                     key="image"
