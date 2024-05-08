@@ -10,12 +10,10 @@ interface IFormProps {
 
 const Form = ({ controlModal }: IFormProps) => {
     const {
-        name,
-        setName,
-        price,
+        foodData,
+        changeName,
         changePrice,
-        image,
-        setImage,
+        changeImage,
         submit,
         isSuccess
     } = useForm();
@@ -36,22 +34,22 @@ const Form = ({ controlModal }: IFormProps) => {
                     key="name"
                     labelInput="Nome"
                     placeholder="Insira o nome do produto"
-                    valueInput={name}
-                    eventInput={event => setName(event.target.value)}
+                    valueInput={foodData.name}
+                    eventInput={changeName}
                 />
                 <TextField
                     key="price"
                     labelInput="Preço"
                     placeholder="Insira o preço do produto"
-                    valueInput={price}
+                    valueInput={foodData.price}
                     eventInput={changePrice}
                 />
                 <TextField
                     key="image"
                     labelInput="Imagem"
                     placeholder="Insira a URL da imagem do produto"
-                    valueInput={image}
-                    eventInput={event => setImage(event.target.value)}
+                    valueInput={foodData.image}
+                    eventInput={changeImage}
                 />
                 <input
                     className="btn-save"

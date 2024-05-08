@@ -8,40 +8,41 @@ const useForm = () => {
         throw new Error("Erro");
     }
     const {
-        name,
-        setName,
-        price,
-        setPrice,
-        image,
-        setImage,
+        foodData,
+        setFoodData,
         id
     } = context;
     const { mutate, isSuccess } = useFoodAdd();
 
     const submit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        const data = { id, name, image, price }
-        mutate(data);
-
-        if (isSuccess) {
-            setName("");
-            setPrice("");
-            setImage("");
-        }
+        mutate(foodData, {
+            onSuccess: () => { // Essa callback eerá executada quando a jutação for bem-sucedida
+                setFoodData({
+                    id: id,
+                    name: "",
+                    price: "",
+                    image: "",
+                });
+            }
+        });
     };
 
+    const changeName = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setFoodData(prev => ({ ...prev, name: event.target.value }))
+    }
     const changePrice = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setPrice(event.target.value)
+        setFoodData(prev => ({ ...prev, price: event.target.value }))
+    }
+    const changeImage = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setFoodData(prev => ({ ...prev, image: event.target.value }))
     }
 
     return {
-        name,
-        setName,
-        price,
+        foodData,
+        changeName,
         changePrice,
-        setPrice,
-        image,
-        setImage,
+        changeImage,
         submit,
         isSuccess
     }
