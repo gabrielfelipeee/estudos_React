@@ -1,0 +1,47 @@
+.box-text-field-password {
+    .box-input {
+        display: flex;
+        flex-direction: column;
+        gap: .2rem;
+        color: #fff;
+        position: relative;
+
+        label {
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+
+        input {
+            border: 1ps solid grey;
+            padding: .5rem 4rem .5rem 2rem;
+            font-size: 1rem;
+            border: none;
+            outline: none;
+            background-color: rgb(46, 46, 46);
+            color: #fff;
+            border-radius: .5rem;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+
+            &.input-error {
+                outline: 1px solid rgb(255, 72, 72);
+            }
+        }
+
+        .box-icon {
+            position: absolute;
+            right: 1rem;
+            bottom: .18rem;
+            cursor: pointer;
+
+            .icon {
+                width: 20px;
+            }
+        }
+    }
+
+    .input-message {
+        font-size: .9rem;
+        color: rgb(255, 72, 72);
+        margin-top: .2rem;
+    }
+}

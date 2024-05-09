@@ -1,0 +1,51 @@
+.container-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+
+    h1 {
+        color: #fff;
+        text-align: center;
+        font-size: 1.6rem;
+        margin-bottom: 2rem;
+    }
+
+    .box-form {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        width: 90%;
+        max-width: 700px;
+
+
+        .box-privacy-terms {
+            color: #fff;
+
+            label {
+                font-size: 1rem;
+            }
+            input {
+                cursor: pointer;
+            }
+        }
+
+        button {
+            background-color: rgb(55, 55, 233);
+            color: #fff;
+            border: none;
+            outline: none;
+            padding: .6rem;
+            border-radius: .4rem;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            opacity: .9;
+            transition: opacity .5s;
+            &:hover {
+                opacity: 1;
+            }
+        }
+    }
+}
