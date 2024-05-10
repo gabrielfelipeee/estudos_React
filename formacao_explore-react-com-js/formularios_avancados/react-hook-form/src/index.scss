@@ -1,0 +1,24 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  background-color: #181818;
+  min-height: 100vh;
+}
+
+
+// Estilos para os erros de formulários
+input, select {
+  &.input-error {
+    outline: 1px solid rgb(255, 72, 72);
+  }
+}
+
+.input-message {
+  font-size: .9rem;
+  color: rgb(255, 72, 72);
+}

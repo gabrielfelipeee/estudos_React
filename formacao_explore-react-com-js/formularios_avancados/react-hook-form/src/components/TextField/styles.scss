@@ -19,13 +19,5 @@
         color: #fff;
         border-radius: .5rem;
         box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-
-        &.input-error {
-            outline: 1px solid rgb(255, 72, 72);
-        }
-    }
-    .input-message {
-        font-size: .9rem;
-        color: rgb(255, 72, 72);
     }
 }

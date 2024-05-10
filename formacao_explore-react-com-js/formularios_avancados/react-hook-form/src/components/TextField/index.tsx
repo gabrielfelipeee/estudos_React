@@ -15,7 +15,6 @@ const TextField = ({
             <label>{label}</label>
             <input
                 className={errors?.[name] && "input-error"}
-
                 type={type}
                 placeholder={placeholder}
                 {...register(name, validation)}

@@ -1,15 +1,16 @@
 import './styles.scss';
-import { UseFormRegister } from 'react-hook-form';
+import { FieldErrors, UseFormRegister } from 'react-hook-form';
 
 interface IListDropDownProps {
     register: UseFormRegister<any>,
     name: string,
     validation?: {
         validate: (value: string) => boolean
-    };
+    }
+    errors?: FieldErrors
 }
 
-const ListDropDown = ({ register, name, validation }: IListDropDownProps) => {
+const ListDropDown = ({ register, name, validation, errors }: IListDropDownProps) => {
     const professions = [
         "Desenvolvedor Front-End",
         "Desenvolvedor Back-End",
@@ -18,11 +19,11 @@ const ListDropDown = ({ register, name, validation }: IListDropDownProps) => {
         "DBA (Database Administrator)"
     ];
 
-
     return (
         <div className="box-list-drop-down">
             <label>Profissão</label>
             <select
+                className={errors?.[name] && "input-error"}
                 {...register(name, validation)}
             >
                 <option value="0">Selecione sua profissão</option>
@@ -32,6 +33,7 @@ const ListDropDown = ({ register, name, validation }: IListDropDownProps) => {
                     </option>
                 )}
             </select>
+            {errors?.[name]?.type === 'validate' && <p className="input-message">Selecione uma profissão</p>}
         </div>
     );
 };

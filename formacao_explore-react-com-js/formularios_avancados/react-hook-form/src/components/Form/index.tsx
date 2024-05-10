@@ -21,7 +21,7 @@ const Form = () => {
     const onSubmit: any = (data: IDataForm) => {
         console.log(data)
     };
-
+    
     return (
         <div className="container-form">
             <h1>Formulário com React-hook-form</h1>
@@ -75,8 +75,12 @@ const Form = () => {
                     register={register}
                     name="profession"
                     validation={{
-                        validate: (value) => value !== "0"
+                        validate: (value) => {
+                            if (value === undefined) return false
+                            return value !== "0"
+                        }
                     }}
+                    errors={errors}
                 />
 
                 <div className="box-privacy-terms">
@@ -87,6 +91,7 @@ const Form = () => {
                         })}
                     />
                     <label> Concordo com os termos de privacidade</label>
+                    {errors?.privacyTerms && <p className="input-message">Você precisa aceitar os termos de privacidade</p>}
                 </div>
 
                 <button onClick={() => handleSubmit(onSubmit)()}>
