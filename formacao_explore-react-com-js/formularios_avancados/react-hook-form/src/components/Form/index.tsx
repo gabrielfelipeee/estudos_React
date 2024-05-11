@@ -5,27 +5,41 @@ import { IDataForm } from "../../interfaces/IDataForm";
 import TextField from "../TextField";
 import TextFieldPassword from "../TextFieldPassword";
 import ListDropDown from "../ListDropDown";
+import { useUserAdd } from '../../hooks/useUsersMutate';
 
 
 const Form = () => {
+    const { mutate: mutateAdd } = useUserAdd();
+
     const {
         register,
         formState: { errors },
         handleSubmit,
+        reset,
         watch // serve para manitorar o valor de um input, OBS: toda vez que o input ser atualizado o componente será renderizado
     } = useForm<IDataForm>();
 
     // Para verificar se a senha é igual a sua confirmação
     const watchPassword = watch("password");
 
+
     const onSubmit: any = (data: IDataForm) => {
-        console.log(data)
+        const { name, email, password, profession } = data; // Desestruturação de data
+        mutateAdd({ name, email, password, profession });
+        reset();
     };
-    
+
+
     return (
         <div className="container-form">
             <h1>Formulário com React-hook-form</h1>
-            <div className="box-form">
+            <form
+                className="box-form"
+                onSubmit={(event) => {
+                    event?.preventDefault();
+                    handleSubmit(onSubmit)();
+                }}
+            >
                 <TextField
                     label="Nome"
                     placeholder="Digite seu nome"
@@ -94,10 +108,10 @@ const Form = () => {
                     {errors?.privacyTerms && <p className="input-message">Você precisa aceitar os termos de privacidade</p>}
                 </div>
 
-                <button onClick={() => handleSubmit(onSubmit)()}>
+                <button>
                     Criar Conta
                 </button>
-            </div>
+            </form>
         </div>
     )
 }
