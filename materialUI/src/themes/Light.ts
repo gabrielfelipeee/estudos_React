@@ -1,8 +1,6 @@
 import { createTheme } from '@mui/material';
 import { yellow, cyan } from '@mui/material/colors';
 
-
-// CreateTem
 export const LightTheme = createTheme({
     // Definições da paleta de cores
     palette: {
