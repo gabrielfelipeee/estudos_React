@@ -1,10 +1,10 @@
-import { Avatar, Box, Divider, Drawer, List, ListItemButton, ListItemIcon, ListItemText, useMediaQuery, useTheme } from "@mui/material";
+import { Avatar, Box, Divider, Drawer, List, useMediaQuery, useTheme } from "@mui/material";
 import { ReactNode } from "react";
-import HomeIcon from '@mui/icons-material/Home';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 
 import { useDrawerContext } from "../../contexts";
+import ListItemLink from "./components/ListItemLink";
 
 
 
@@ -15,7 +15,7 @@ interface ISidebarProps {
 const Sidebar = ({ children }: ISidebarProps) => {
     const theme = useTheme();
     const smDowm = useMediaQuery(theme.breakpoints.down("sm"));
-    const { toggleDrawer, isDrawerOpen } = useDrawerContext();
+    const { toggleDrawer, isDrawerOpen, drawerOptions } = useDrawerContext();
 
     return (
         <>
@@ -71,12 +71,17 @@ const Sidebar = ({ children }: ISidebarProps) => {
                         flex="1" // Ocupa todo o espaço restante
                     >
                         <List component="nav">
-                            <ListItemButton >
-                                <ListItemIcon>
-                                    <HomeIcon />
-                                </ListItemIcon>
-                                <ListItemText primary="Página Inicial" />
-                            </ListItemButton>
+                            {
+                                drawerOptions.map((drawerOption, index) =>
+                                    <ListItemLink
+                                        key={index}
+                                        icon={drawerOption.icon}
+                                        label={drawerOption.label}
+                                        to={drawerOption.path}
+                                        onClick={smDowm ? toggleDrawer : undefined}
+                                    />
+                                )
+                            }
                         </List>
                     </Box>
 
