@@ -1,28 +1,24 @@
 import { Icon, ListItemButton, ListItemIcon, ListItemText } from "@mui/material";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 
 interface IListItemLink {
     label: string,
     icon: string,
     to: string,
-    onClick?: () => void,
+    onClick?: () => void
 };
 
 
 const ListItemLink = ({ icon, label, onClick, to }: IListItemLink) => {
-    const navigate = useNavigate();
     const { pathname } = useLocation();
-
-    const handleClick = () => {
-        navigate(to);
-        onClick?.(); // ?. -> se for undefined ou null, não irá executar
-    };
 
     return (
         <ListItemButton
-            onClick={handleClick}
-            selected={pathname === to && true}
+            component={Link} // O component ListItemButton irá se comportar como um Link
+            to={to} // propriedade obrigatória do Link
+            onClick={onClick || undefined}
+            selected={pathname === to}
         >
             <ListItemIcon>
                 <Icon>{icon}</Icon>

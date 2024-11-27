@@ -4,6 +4,7 @@ import { yellow, cyan } from '@mui/material/colors';
 export const LightTheme = createTheme({
     // Definições da paleta de cores
     palette: {
+        mode: "light",
         primary: {
             main: yellow[700], // Cor principal, usado em botões, links, etc.
             dark: yellow[800], // Versão mais escura da cor principal

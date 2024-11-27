@@ -3,10 +3,11 @@ import { yellow, cyan } from '@mui/material/colors';
 
 export const DarkTheme = createTheme({
     palette: {
+        mode: "dark",
         primary: {
             main: yellow[700],
-            dark: yellow[800], 
-            light: yellow[500], 
+            dark: yellow[800], // tbm usado no hover, por padrão
+            light: yellow[500],
             contrastText: "#fff"
         },
         secondary: {
@@ -18,6 +19,11 @@ export const DarkTheme = createTheme({
         background: {
             default: "#202124",
             paper: "#303134",
+        }
+    },
+    typography: {
+        allVariants: {
+            color: "#fff"
         }
     }
 });
