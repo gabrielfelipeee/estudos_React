@@ -1,0 +1,38 @@
+@import '../../index.scss';
+
+.button {
+    width: 180px;
+    height: 45px;
+    border: none;
+    border-radius: 6px;
+    background-color: var(--color-button-default);
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 5px;
+    cursor: pointer;
+    transition: background-color .5s linear;
+
+    &:hover {
+        background-color: var(--color-button-default-hover);
+    }
+
+    &.button_increment {
+        background-color: var(--color-button-increment);
+        color: var(--color-white);
+        outline-color: var(--color-button-increment-outline);
+
+        &:hover {
+            background-color: var(--color-button-increment-hover);
+        }
+    }
+
+    &.button_decrement {
+        background-color: var(--color-button-decrement);
+        color: var(--color-white);
+        outline-color: var(--color-button-decrement-outline);
+
+        &:hover {
+            background-color: var(--color-button-decrement-hover);
+        }
+    }
+}
